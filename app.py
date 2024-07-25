@@ -31,6 +31,9 @@ def upload_file():
 
             img_array = prepare_image(file_path)
             prediction = model.predict(img_array)
+            predicted_class_index = np.argmax(prediction)
+            cass_labels=["Acne","Benign_tumors","Eczema"]
+            result = class_labels[predicted_class_index]
             result = np.argmax(prediction, axis=1)[0]
             os.remove(file_path)  # Clean up the uploaded file
 
