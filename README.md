@@ -71,7 +71,7 @@ The following parameters can be adjusted in the skin_disease_classifier.py scrip
 ##Using the Trained Model
 
 The trained model is saved as model.h5. You can load and use this model for making predictions on new images.  Example code for loading and using the model would look like:
-Python
+```Python
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
@@ -88,10 +88,11 @@ def predict_image(image_path):
     predictions = model.predict(img_array)
     predicted_class = np.argmax(predictions)
     return predicted_class # And potentially the probabilities (predictions)
-
+```
 ## Example usage
+```python
 image_path = "path/to/new_image.jpg"
 predicted_class = predict_image(image_path)
 print(f"Predicted class: {predicted_class}")
-
+```
 Remember to replace "path/to/new_image.jpg" with the actual path to your image and include the necessary imports.  You'll also need to map the predicted integer class to the actual disease name based on your dataset's class indices.
