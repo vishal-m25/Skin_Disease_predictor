@@ -5,28 +5,6 @@ This project implements a Convolutional Neural Network (CNN) for classifying ski
 
 ## Project Structure
 
-SkinDiseaseClassifier/
-├── README.md             <- This file
-├── model.h5              <- Saved trained model
-├── train/                <- Directory containing training images, organized by class
-│   └── class1/
-│       ├── image1.jpg
-│       ├── image2.png
-│       └── ...
-│   └── class2/
-│       ├── image1.jpg
-│       └── ...
-└── test/                 <- Directory containing testing images, organized by class (same structure as train/)
-└── class1/
-├── image1.jpg
-├── image2.png
-└── ...
-└── class2/
-├── image1.jpg
-└── ...
-└── skin_disease_classifier.py <- Python script for training and saving the model (This would contain the code you provided)
-
-
 ## Requirements
 
 - Python 3
@@ -37,11 +15,11 @@ You can install the necessary libraries using pip:
 
 ```bash
 pip install tensorflow numpy
-
-Dataset
+```
+#Dataset
 
 The dataset should be organized into two directories: train and test. Each directory should contain subdirectories for each class of skin disease.  Images for each class should be placed within their respective class directories.  For example:
-
+```bash
 train/
 ├── eczema/
 │   ├── eczema_image1.jpg
@@ -58,18 +36,18 @@ test/
 └── psoriasis/
     ├── psoriasis_image1.jpg
     └── ...
-
+```
 Important: Ensure your image data is appropriately sized or adjust img_height and img_width variables in the code to match your image dimensions.
 How to Run
 
-    Place your image data in the train and test directories as described above.
-    Save the provided Python code as skin_disease_classifier.py (or a name of your choice).
-    Run the script from your terminal:
+Place your image data in the train and test directories as described above.
+Save the provided Python code as skin_disease_classifier.py (or a name of your choice).
+Run the script from your terminal:
 
-Bash
+```Bash
 
 python skin_disease_classifier.py
-
+```
 This will:
 
     Load and preprocess the image data.
@@ -78,7 +56,7 @@ This will:
     Print the test accuracy.
     Save the trained model as model.h5.
 
-Model Architecture
+##Model Architecture
 
 The CNN model architecture consists of convolutional layers, max pooling layers, dropout layers, a flatten layer, and fully connected layers.  It's designed for multi-class image classification using the softmax activation function in the final layer.  The code includes data augmentation (rescaling, shearing, zooming, and horizontal flipping) to improve the model's robustness and prevent overfitting.
 Training Parameters
@@ -90,7 +68,7 @@ The following parameters can be adjusted in the skin_disease_classifier.py scrip
     batch_size: Number of images processed in each batch during training.
     epochs: Number of training epochs.
 
-Using the Trained Model
+##Using the Trained Model
 
 The trained model is saved as model.h5. You can load and use this model for making predictions on new images.  Example code for loading and using the model would look like:
 Python
@@ -111,7 +89,7 @@ def predict_image(image_path):
     predicted_class = np.argmax(predictions)
     return predicted_class # And potentially the probabilities (predictions)
 
-# Example usage
+## Example usage
 image_path = "path/to/new_image.jpg"
 predicted_class = predict_image(image_path)
 print(f"Predicted class: {predicted_class}")
